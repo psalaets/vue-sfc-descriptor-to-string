@@ -4,8 +4,7 @@ module.exports = function toString({template, script, styles, customBlocks}) {
   const indents = {
     template: 2,
     script: 0,
-    style: 0,
-    custom: 0
+    style: 0
   };
 
   return [template, script, ...styles, ...customBlocks]
@@ -45,7 +44,7 @@ module.exports = function toString({template, script, styles, customBlocks}) {
       return sfcCode
         + '\n'.repeat(newlinesBefore)
         + block.openTag
-        + indentString(block.content, indents[block.type])
+        + indentString(block.content, indents[block.type] || 0)
         + block.closeTag;
     }, '');
 }
