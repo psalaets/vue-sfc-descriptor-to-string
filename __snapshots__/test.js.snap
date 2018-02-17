@@ -77,6 +77,35 @@ export default {
 "
 `;
 
+exports[`extra newlines between blocks 1`] = `
+"<script>
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+</script>
+
+
+
+<template>
+  <div class=\\"widget\\">Hello {{name}}</div>
+</template>
+
+
+
+
+
+<style>
+.widget {
+  color: red;
+}
+</style>
+"
+`;
+
 exports[`leading newlines 1`] = `
 "
 

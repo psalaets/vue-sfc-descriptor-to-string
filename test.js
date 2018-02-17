@@ -75,6 +75,14 @@ it('custom blocks', async () => {
   expect(result).toMatchSnapshot();
 });
 
+it('extra newlines between blocks', async () => {
+  const descriptor = await parse('./test-components/ExtraNewlinesBetweenBlocks.vue');
+
+  const result = toString(descriptor);
+
+  expect(result).toMatchSnapshot();
+});
+
 function parse(pathToComponent) {
   return new Promise((resolve, reject) => {
     fs.readFile(pathToComponent, 'utf8', (err, sfc) => {
