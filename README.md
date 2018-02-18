@@ -1,3 +1,1 @@
-# tests
-
-- 0, 2, 4 space indents
+# vue-sfc-descriptor-to-string

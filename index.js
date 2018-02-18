@@ -1,11 +1,18 @@
 const indentString = require('indent-string');
 
-module.exports = function toString({template, script, styles, customBlocks}) {
-  const indents = {
+module.exports = function toString(sfcDescriptor, options = {}) {
+  const {
+    template,
+    script,
+    styles,
+    customBlocks
+  } = sfcDescriptor;
+
+  const indents = Object.assign({
     template: 2,
     script: 0,
     style: 0
-  };
+  }, options.indents);
 
   return [template, script, ...styles, ...customBlocks]
     // discard blocks that don't exist

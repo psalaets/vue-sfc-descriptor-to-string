@@ -83,6 +83,22 @@ it('extra newlines between blocks', async () => {
   expect(result).toMatchSnapshot();
 });
 
+it('accepts custom indent amounts for every block', async () => {
+  const descriptor = await parse('./test-components/CustomIndents.vue');
+
+  const result = toString(descriptor, {
+    indents: {
+      template: 4,
+      script: 2,
+      style: 1,
+      custom1: 10
+    }
+  });
+
+  expect(result).toMatchSnapshot();
+});
+
+// helpers
 function parse(pathToComponent) {
   return new Promise((resolve, reject) => {
     fs.readFile(pathToComponent, 'utf8', (err, sfc) => {

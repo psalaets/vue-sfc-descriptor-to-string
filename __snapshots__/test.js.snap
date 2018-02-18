@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`accepts custom indent amounts for every block 1`] = `
+"<script>
+  export default {
+    props: {
+      name: {
+        type: String
+      }
+    }
+  };
+</script>
+
+<template>
+    <div class=\\"widget\\">Hello {{name}}</div>
+</template>
+
+<style>
+ .widget {
+   color: red;
+ }
+</style>
+
+<custom1>
+          hello 1
+</custom1>
+"
+`;
+
 exports[`attributes on blocks 1`] = `
 "<script lang=\\"js\\">
 export default {
