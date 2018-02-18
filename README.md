@@ -22,7 +22,9 @@ result == sfcSource // => true, but see caveats below
 
 ## API
 
-`const toString = require('vue-sfc-descriptor-to-string');`
+```js
+const toString = require('vue-sfc-descriptor-to-string');
+```
 
 ### `toString(SFCDescriptor, options)`
 
