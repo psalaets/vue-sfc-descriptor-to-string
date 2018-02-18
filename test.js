@@ -3,6 +3,15 @@ const compiler = require('vue-template-compiler');
 
 const toString = require('./index');
 
+it('is inverse of `compiler.parseComponent()`', () => {
+  const source = fs.readFileSync('./test-components/Vanilla.vue', 'utf8');
+  const descriptor = compiler.parseComponent(source);
+
+  const result = toString(descriptor);
+
+  expect(result).toBe(source)
+});
+
 it('vanilla sfc', async () => {
   const descriptor = await parse('./test-components/Vanilla.vue');
 
