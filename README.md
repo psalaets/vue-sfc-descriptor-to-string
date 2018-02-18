@@ -28,7 +28,7 @@ result == sfcSource // => true, but see caveats below
 
 #### SFCDescriptor
 
-Object that looks like [vue-template-compiler's SFCDescriptor type](https://github.com/vuejs/vue/blob/dev/flow/compiler.js#L177)
+Object that looks like an [SFCDescriptor](https://github.com/vuejs/vue/blob/dev/flow/compiler.js#L177)
 
 #### options
 
