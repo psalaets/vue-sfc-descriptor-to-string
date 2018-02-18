@@ -1,6 +1,6 @@
 # vue-sfc-descriptor-to-string
 
-Convert SFCDescriptor back to source
+Convert SFCDescriptor to source
 
 ## Install
 
@@ -24,7 +24,7 @@ result == sfcSource // => true, but see caveats below
 
 `const toString = require('vue-sfc-descriptor-to-string');`
 
-### `toString(SFCDescriptor, options)
+### `toString(SFCDescriptor, options)`
 
 #### SFCDescriptor
 
@@ -40,7 +40,7 @@ Optional object that can have a property for each sfc block name (e.g. `template
 
 Defaults to
 
-```
+```js
 {
   template: 2,
   script: 0,
