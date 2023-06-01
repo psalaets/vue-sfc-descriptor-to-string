@@ -20,16 +20,28 @@ export default function toString(sfcDescriptor, options = {}) {
     .map(block => {
       const openTag = makeOpenTag(block);
       const closeTag = makeCloseTag(block);
+      const isSelfClosing = block.ast?.isSelfClosing;
 
       return Object.assign({}, block, {
         openTag,
         closeTag,
+        isSelfClosing,
 
-        startOfOpenTag: block.loc.start.offset - openTag.length,
-        endOfOpenTag: block.loc.start.offset,
+        ...isSelfClosing
+          ? {
+            startOfOpenTag: block.ast.loc.start.offset,
+            endOfOpenTag: block.ast.loc.end.offset,
 
-        startOfCloseTag: block.loc.end.offset,
-        endOfCloseTag: block.loc.end.offset + closeTag.length
+            startOfCloseTag: block.ast.loc.start.offset,
+            endOfCloseTag: block.ast.loc.end.offset,
+          }
+          : {
+            startOfOpenTag: block.loc.start.offset - openTag.length,
+            endOfOpenTag: block.loc.start.offset,
+
+            startOfCloseTag: block.loc.end.offset,
+            endOfCloseTag: block.loc.end.offset + closeTag.length,
+          }
       });
     })
     // generate sfc source
@@ -47,9 +59,12 @@ export default function toString(sfcDescriptor, options = {}) {
 
       return sfcCode
         + '\n'.repeat(newlinesBefore)
-        + block.openTag
-        + indentString(block.content, options.indents[block.type] || 0)
-        + block.closeTag;
+        + (block.isSelfClosing
+          ? `${block.ast.loc.source}\n`
+          : block.openTag
+            + indentString(block.content, options.indents[block.type] || 0)
+            + block.closeTag
+        );
     }, '');
 }
 

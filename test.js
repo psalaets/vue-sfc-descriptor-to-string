@@ -28,6 +28,14 @@ it('script setup', async () => {
   expect(result).toMatchSnapshot();
 });
 
+it('empty template', async () => {
+  const descriptor = await parse('./test-components/EmptyTemplate.vue');
+
+  const result = toString(descriptor);
+
+  expect(result).toMatchSnapshot();
+});
+
 it('different order blocks', async () => {
   const descriptor = await parse('./test-components/DifferentOrderBlocks.vue');
 

@@ -104,6 +104,21 @@ export default {
 "
 `;
 
+exports[`empty template 1`] = `
+"<script>
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+</script>
+
+<template />
+"
+`;
+
 exports[`extra newlines between blocks 1`] = `
 "<script>
 export default {
