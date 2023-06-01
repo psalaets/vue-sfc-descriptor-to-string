@@ -44,7 +44,7 @@ export default function toString(sfcDescriptor, options = {}) {
         const prevBlock = array[index - 1];
         newlinesBefore = block.startOfOpenTag - prevBlock.endOfCloseTag;
       }
-      
+
       return sfcCode
         + '\n'.repeat(newlinesBefore)
         + block.openTag
