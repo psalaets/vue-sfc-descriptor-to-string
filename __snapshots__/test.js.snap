@@ -237,6 +237,19 @@ export default {
 "
 `;
 
+exports[`script setup 1`] = `
+"<script setup>
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+</script>
+"
+`;
+
 exports[`vanilla sfc 1`] = `
 "<script>
 export default {

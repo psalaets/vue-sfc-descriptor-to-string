@@ -20,6 +20,14 @@ it('vanilla sfc', async () => {
   expect(result).toMatchSnapshot();
 });
 
+it('script setup', async () => {
+  const descriptor = await parse('./test-components/ScriptSetup.vue');
+
+  const result = toString(descriptor);
+
+  expect(result).toMatchSnapshot();
+});
+
 it('different order blocks', async () => {
   const descriptor = await parse('./test-components/DifferentOrderBlocks.vue');
 
