@@ -1,11 +1,11 @@
-const fs = require('fs');
-const compiler = require('vue-template-compiler');
+import fs from 'fs';
+import compiler from '@vue/compiler-sfc';
 
-const toString = require('./index');
+import toString from './index';
 
 it('is inverse of `compiler.parseComponent()`', () => {
   const source = fs.readFileSync('./test-components/Vanilla.vue', 'utf8');
-  const descriptor = compiler.parseComponent(source);
+  const descriptor = compiler.parse(source).descriptor;
 
   const result = toString(descriptor);
 
@@ -114,7 +114,7 @@ function parse(pathToComponent) {
       if (err) return reject(err);
 
       try {
-        const descriptor = compiler.parseComponent(sfc);
+        const descriptor = compiler.parse(sfc).descriptor;
         return resolve(descriptor);
       } catch (e) {
         return reject(e);

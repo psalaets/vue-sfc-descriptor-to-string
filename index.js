@@ -1,24 +1,21 @@
-const indentString = require('indent-string');
+import indentString from 'indent-string';
 
-module.exports = function toString(sfcDescriptor, options = {}) {
+export default function toString(sfcDescriptor, options = {}) {
   const {
     template,
     script,
+    scriptSetup,
     styles,
     customBlocks
   } = sfcDescriptor;
 
-  const indents = Object.assign({
-    template: 2,
-    script: 0,
-    style: 0
-  }, options.indents);
+  options.indents = options.indents || {}
 
-  return [template, script, ...styles, ...customBlocks]
+  return [template, script, scriptSetup, ...styles, ...customBlocks]
     // discard blocks that don't exist
     .filter(block => block != null)
     // sort blocks by source position
-    .sort((a, b) => a.start - b.start)
+    .sort((a, b) => a.loc.start.offset - b.loc.start.offset)
     // figure out exact source positions of blocks
     .map(block => {
       const openTag = makeOpenTag(block);
@@ -28,11 +25,11 @@ module.exports = function toString(sfcDescriptor, options = {}) {
         openTag,
         closeTag,
 
-        startOfOpenTag: block.start - openTag.length,
-        endOfOpenTag: block.start,
+        startOfOpenTag: block.loc.start.offset - openTag.length,
+        endOfOpenTag: block.loc.start.offset,
 
-        startOfCloseTag: block.end,
-        endOfCloseTag: block.end + closeTag.length
+        startOfCloseTag: block.loc.end.offset,
+        endOfCloseTag: block.loc.end.offset + closeTag.length
       });
     })
     // generate sfc source
@@ -47,11 +44,11 @@ module.exports = function toString(sfcDescriptor, options = {}) {
         const prevBlock = array[index - 1];
         newlinesBefore = block.startOfOpenTag - prevBlock.endOfCloseTag;
       }
-
+      
       return sfcCode
         + '\n'.repeat(newlinesBefore)
         + block.openTag
-        + indentString(block.content, indents[block.type] || 0)
+        + indentString(block.content, options.indents[block.type] || 0)
         + block.closeTag;
     }, '');
 }
