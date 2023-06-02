@@ -12,7 +12,7 @@ exports[`accepts custom indent amounts for every block 1`] = `
 </script>
 
 <template>
-    <div class=\\"widget\\">Hello {{name}}</div>
+    <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
@@ -28,7 +28,7 @@ exports[`accepts custom indent amounts for every block 1`] = `
 `;
 
 exports[`attributes on blocks 1`] = `
-"<script lang=\\"js\\">
+"<script lang="js">
 export default {
   props: {
     name: {
@@ -38,11 +38,11 @@ export default {
 };
 </script>
 
-<template lang=\\"html\\">
-  <div class=\\"widget\\">Hello {{name}}</div>
+<template lang="html">
+  <div class="widget">Hello {{name}}</div>
 </template>
 
-<style lang=\\"css\\" scoped>
+<style lang="css" scoped>
 .widget {
   color: red;
 }
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
@@ -83,7 +83,7 @@ hello 2
 
 exports[`different order blocks 1`] = `
 "<template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <script>
@@ -104,6 +104,21 @@ export default {
 "
 `;
 
+exports[`empty template 1`] = `
+"<script>
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+</script>
+
+<template />
+"
+`;
+
 exports[`extra newlines between blocks 1`] = `
 "<script>
 export default {
@@ -118,7 +133,7 @@ export default {
 
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 
@@ -148,7 +163,7 @@ export default {
 </script>
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
@@ -171,7 +186,7 @@ export default {
 </script>
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
@@ -190,7 +205,7 @@ export default {
 
 exports[`no script 1`] = `
 "<template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
@@ -213,7 +228,7 @@ export default {
 </script>
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 "
 `;
@@ -237,6 +252,19 @@ export default {
 "
 `;
 
+exports[`script setup 1`] = `
+"<script setup>
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  }
+};
+</script>
+"
+`;
+
 exports[`vanilla sfc 1`] = `
 "<script>
 export default {
@@ -249,7 +277,7 @@ export default {
 </script>
 
 <template>
-  <div class=\\"widget\\">Hello {{name}}</div>
+  <div class="widget">Hello {{name}}</div>
 </template>
 
 <style>
