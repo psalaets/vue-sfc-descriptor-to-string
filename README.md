@@ -44,7 +44,7 @@ Defaults to
 
 ```js
 {
-  template: 2,
+  template: 0,
   script: 0,
   style: 0
 }

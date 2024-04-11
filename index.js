@@ -9,7 +9,8 @@ export default function toString(sfcDescriptor, options = {}) {
     customBlocks
   } = sfcDescriptor;
 
-  options.indents = options.indents || {}
+  const defaultIndent = 0;
+  const indents = options.indents || {};
 
   return [template, script, scriptSetup, ...styles, ...customBlocks]
     // discard blocks that don't exist
@@ -62,7 +63,7 @@ export default function toString(sfcDescriptor, options = {}) {
         + (block.isSelfClosing
           ? `${block.ast.loc.source}\n`
           : block.openTag
-            + indentString(block.content, options.indents[block.type] || 0)
+            + indentString(block.content, indents[block.type] || defaultIndent)
             + block.closeTag
         );
     }, '');
