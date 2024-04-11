@@ -72,7 +72,6 @@ function makeOpenTag(block) {
   let source = '<' + block.type;
 
   source += Object.keys(block.attrs)
-    .sort()
     .map(name => {
       const value = block.attrs[name];
 
