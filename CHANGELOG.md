@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2024-04-11
+
+### Fixed
+
+- Don't mutation options object.
+- Fix inaccuracy in docs ([#3](https://github.com/psalaets/vue-sfc-descriptor-to-string/issues/3)).
+
 ## [3.0.0] - 2024-04-11
 
 ### Breaking
