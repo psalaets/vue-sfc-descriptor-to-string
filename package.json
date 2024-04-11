@@ -1,6 +1,6 @@
 {
   "name": "vue-sfc-descriptor-to-string",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Convert SFCDescriptor to source",
   "main": "index.js",
   "type": "module",
