@@ -56,7 +56,6 @@ This module isn't a true inverse of `compiler.parseComponent()` because it doesn
 
 - ends with a single newline
 - has a single space before each attribute on `<script>`, `<template>`, `<style>`
-- has attributes in abc order on `<script>`, `<template>`, `<style>`
 - other stuff
 
 ## License
