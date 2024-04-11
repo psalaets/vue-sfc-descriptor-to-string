@@ -42,7 +42,7 @@ export default {
   <div class="widget">Hello {{name}}</div>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="css">
 .widget {
   color: red;
 }
